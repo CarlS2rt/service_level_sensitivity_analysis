@@ -1,0 +1,4 @@
+*.csv
+databases.py
+config.py
+.ipynb_checkpoints
