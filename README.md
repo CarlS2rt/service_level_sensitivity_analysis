@@ -11,7 +11,7 @@ This analysis attempts to answer the following questions:
 
 1. What is the relationship between service level and other call center metrics?
 2. How much will staffing requirements decrease at different SLA targets?
-3. Does lowering SLAs generate any actual cost savings from a headcount perspective?
+3. Does lowering SLAs generate actual cost savings from a headcount perspective?
 
 ## Call Center Metric Relationships
 
@@ -21,7 +21,7 @@ The models were initially trained on just the sales group to test the predictive
 
 ![](visualizations/updated_correlation_matrix.png)
 
-Interesting findings in the correlations matrix were that abandonment percentage and average speed of answer (ASA) had moderate negative correlation with staffing requirements, suggesting that as staffing goes up abandonment and ASA go down. Additionally, due to occupancy being more of an agent metric than a queue metric, the model did not pick up on strong correlation between occupancy and staffing requirements. Differing call priorities and multiskilling likely further complicated the relationship within the models. As expected, offered calls, average handle time, and the derivative workload calculations had strong positive correlations with staffing requirements. 
+Interesting findings in the correlations matrix were that abandonment percentage and average speed of answer (ASA) had moderate negative correlation with staffing requirements, suggesting that as staffing goes up abandonment and ASA go down. This is definitely the case with service level, but it's interesting the model picked up a separate relationship with staffing requirements as well. Additionally, due to occupancy being more of an agent metric than a queue metric, the model did not pick up on strong correlation between occupancy and staffing requirements. Differing call priorities and multiskilling likely further complicated the relationship within the models. As expected, offered calls, average handle time, and the derivative workload calculations had strong positive correlations with staffing requirements. 
 
 ## Erlang C Calculations
 
@@ -42,6 +42,7 @@ The same information is here represented in bar graph form:
 
 ![](visualizations/fte_diff_bar.png)
 
-## Modified Erlang Calculation with Regressions
+## Regression Factors on Erlang Outputs
 
-Based on the Erlang data, additional OLS regressions were run on the outputs of the model for service level attained, occupancy, and probability a call waits. 
+The Erlang models represent how staffing requirements change at different SLAs if all things remain constant. The complex relationship between variables in the regressions and machine learning models indicates those variables will not remain constant, however. 
+
