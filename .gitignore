@@ -2,3 +2,8 @@
 databases.py
 config.py
 .ipynb_checkpoints
+uip_campaign_dict.py
+verint_campaign_dict.py
+verint_queues_dict.py
+organizations_dict.py
+wg_campaign_dict.py
